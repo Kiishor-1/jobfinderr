@@ -91,7 +91,7 @@ export default function Navbar() {
       </div>
 
       {/* Menu Items */}
-      <div className={`md:flex md:items-center absolute md:relative left-0 px-2 py-4 md:p-0 bg-[inherit] w-full md:w-auto ${menuOpen ? "top-16 block rounded-b-[2rem]" : "top-[-100%] hidden"} md:top-auto transition-all duration-300 ease-in-out`}>
+      <div className={`md:flex md:items-center absolute md:relative left-0 px-2 py-4 md:p-0 md:bg-transparent bg-[inherit] w-full md:w-auto ${menuOpen ? "top-16 block rounded-b-[2rem]" : "top-[-100%] hidden"} md:top-auto transition-all duration-300 ease-in-out`}>
         {user ? (
           <div className="flex flex-col md:flex-row md:items-center items-start gap-4 text-white">
             <button onClick={handleLogout} className="px-4 py-[0.4rem]">Logout</button>
