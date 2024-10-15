@@ -98,13 +98,13 @@ export default function JobSearch({ onFilterChange }) {
         ) : (
           <div className="">
             <button
-              className="bg-red-500 text-white px-4 py-2 rounded-lg"
+              className="bg-red-500 text-white px-2 py-2 rounded-lg"
               onClick={applyFilter}
             >
               Apply Filter
             </button>
             <button
-              className="border border-2 px-4 py-[0.4rem] rounded-lg border-red-500  text-red-600 ml-2"
+              className="border border-2 px-2 py-[0.4rem] rounded-lg border-red-500  text-red-600 ml-2"
               onClick={clearFilter}
             >
               Clear

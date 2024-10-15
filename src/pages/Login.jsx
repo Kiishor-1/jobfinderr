@@ -3,7 +3,7 @@ import LoginForm from '../components/LoginForm';
 
 export default function Login() {
     return (
-        <div className="h-screen w-screen flex items-center lg:flex-row flex-col">
+        <div className="h-screen w-screen flex items-center lg:flex-row flex-col p-2">
             <LoginForm/>
             <div className="relative h-screen lg:w-[fit-content] w-full lg:block hidden" >
                 <img
