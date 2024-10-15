@@ -6,15 +6,9 @@
 body {
     font-family: "DM Sans";
 }
-/* 
 body::-webkit-scrollbar {
-    width: 4px;
-    background-color: rgb(5, 82, 108);
+    display: none;
 }
-
-body::-webkit-scrollbar-thumb {
-    background-color: white;
-} */
 
 #add_job_form::-webkit-scrollbar {
     width: 5px;
