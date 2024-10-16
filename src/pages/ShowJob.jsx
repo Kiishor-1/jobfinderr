@@ -8,6 +8,7 @@ import { PiMoneyFill } from "react-icons/pi";
 import { IoCalendarClear } from "react-icons/io5";
 import { GoDotFill } from "react-icons/go";
 import { formatDate } from "../utils/dateUtils";
+import { MdEdit } from "react-icons/md";
 
 export default function ShowJob() {
     const { id } = useParams();
@@ -34,7 +35,7 @@ export default function ShowJob() {
                 <Navbar />
             </div>
             <p className="translate-y-[-10px] sticky top-[4.5rem] bg-white font-semibold text-lg text-gray-600 z-[1] md:z-[3] shadow-lg py-6 px-6 text-center max-w-[1000px] mx-auto">{currentJob.description}</p>
-            <div className="bg-white text-gray-600 max-w-[1000px] mx-auto p-8 shadow-lg my-3">
+            <div className="bg-white text-gray-600 max-w-[1000px] mx-auto p-8 md:shadow-lg my-3">
                 <p className="text-[0.8rem] flex items-center gap-1 my-3">
                     <span>{formatDate(currentJob.postedDate)}</span>
                     <span className="text-gray-300"><GoDotFill /></span>
@@ -44,7 +45,10 @@ export default function ShowJob() {
                     <h2 className="text-2xl">{currentJob.title}</h2>
                     {
                         isAuthor &&
-                        <Link to={`/jobs/${id}/edit`} className="bg-red-500 text-white px-3 py-2 rounded-md">Edit Job</Link>
+                        <Link to={`/jobs/${id}/edit`} className="bg-red-500 text-white px-3 py-2 rounded-md">
+                            <span className="lg:block hidden">Edit Job</span>
+                            <span className="block lg:hidden"><MdEdit/></span>
+                        </Link>
                     }
                 </div>
                 <span className="text-red-500 text-sm">{currentJob.location}</span>

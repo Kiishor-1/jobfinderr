@@ -18,6 +18,7 @@ export default function JobCard({ job }) {
           alt={job.title}
           className="w-12 h-12 rounded-full"
           onError={handleImageError}  // Fallback to default avatar on error
+          title={`${job?.company}`}
         />
       </div>
 
