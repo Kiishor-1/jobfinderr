@@ -61,8 +61,8 @@ export default function JobSearch({ onFilterChange }) {
         />
       </div>
 
-      <div className="flex space-x-2 items-center justify-between mt-4">
-        <div className="relative flex items-center gap-2">
+      <div className="fle mt-4">
+        <div className="relative flex items-center gap-2 justify-between">
           <button
             className="border border-gray-300 p-2 rounded-lg flex items-center gap-1"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -85,32 +85,36 @@ export default function JobSearch({ onFilterChange }) {
             </div>
           )}
 
-          {skills.map((skill, index) => (
-            <div key={index} className="flex bg-red-100 items-center text-red-600 py-2 h-[40px]">
-              <span className='px-4'>{skill}</span>
-              <button className="bg-[#FF6B6B] h-[40px] text-white px-3" onClick={() => removeSkill(skill)}>X</button>
+
+          {user ? (
+            <Link to={"/new"} className='bg-red-500 px-3 py-2 text-white font-semibold rounded-md'>+Add Job</Link>
+          ) : (
+            <div className="">
+              <button
+                className="bg-red-500 text-white px-2 py-2 rounded-lg"
+                onClick={applyFilter}
+              >
+                Apply Filter
+              </button>
+              <button
+                className="border border-2 px-2 py-[0.4rem] rounded-lg border-red-500  text-red-600 ml-2"
+                onClick={clearFilter}
+              >
+                Clear
+              </button>
             </div>
-          ))}
+          )}
+
+        </div>
+        <div className="flex items-center gap-2 flex-wrap py-2">
+        {skills.map((skill, index) => (
+          <div key={index} className="flex bg-red-100 items-center text-red-600 py-2 h-[40px]">
+            <span className='px-4'>{skill}</span>
+            <button className="bg-[#FF6B6B] h-[40px] text-white px-3" onClick={() => removeSkill(skill)}>X</button>
+          </div>
+        ))}
         </div>
 
-        {user ? (
-          <Link to={"/new"} className='bg-red-500 px-3 py-2 text-white font-semibold rounded-md'>+Add Job</Link>
-        ) : (
-          <div className="">
-            <button
-              className="bg-red-500 text-white px-2 py-2 rounded-lg"
-              onClick={applyFilter}
-            >
-              Apply Filter
-            </button>
-            <button
-              className="border border-2 px-2 py-[0.4rem] rounded-lg border-red-500  text-red-600 ml-2"
-              onClick={clearFilter}
-            >
-              Clear
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
