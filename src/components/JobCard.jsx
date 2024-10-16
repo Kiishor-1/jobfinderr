@@ -1,14 +1,27 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function JobCard({ job }) {
+  const [imageSrc, setImageSrc] = useState(job?.logoUrl || `https://ui-avatars.com/api/?name=${job?.company}`); // Use job.logoUrl or fallback
+
+  const handleImageError = () => {
+    setImageSrc(`https://ui-avatars.com/api/?name=${job?.company}`);  // Set fallback image if original fails
+  };
+
   return (
     <div className="bg-white lg:p-6 px-2 py-4 shadow-[1px_1px_15px_pink] flex lg:flex-row flex-col lg:items-center items-baseline space-x-4 mb-4">
       {/* Company Logo */}
-      <div className="borde p-2">
-        <img src={`https://ui-avatars.com/api/?name=${job?.company}`} alt={job.title} className="w-12 h-12 rounded-full" />
+      <div className="p-2">
+        <img
+          src={imageSrc}
+          alt={job.title}
+          className="w-12 h-12 rounded-full"
+          onError={handleImageError}  // Fallback to default avatar on error
+        />
       </div>
 
-      <div className="flex-1 flex lg:flex-row flex-col lg:items-center lg:justify-between gap-6  pr-3" style={{"margin":"0"}}>
+      <div className="flex-1 flex lg:flex-row flex-col lg:items-center lg:justify-between gap-6 pr-3" style={{ margin: "0" }}>
         {/* Job Details */}
         <div className="flex-grow">
           <h3 className="text-xl font-bold">{job.title}</h3>
@@ -36,7 +49,6 @@ export default function JobCard({ job }) {
           </div>
         </div>
 
-        {/* View Details Button */}
         <div>
           <Link to={`/jobs/${job._id}`} className="bg-red-500 text-white px-4 py-2 rounded-lg">View details</Link>
         </div>
@@ -44,3 +56,20 @@ export default function JobCard({ job }) {
     </div>
   );
 }
+
+// Add prop-types for prop validation
+JobCard.propTypes = {
+  job: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    logoUrl: PropTypes.string,
+    salary: PropTypes.shape({
+      from: PropTypes.number.isRequired,
+      to: PropTypes.number.isRequired
+    }).isRequired,
+    location: PropTypes.string.isRequired,
+    vacancies: PropTypes.number.isRequired,
+    skills: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
+};
