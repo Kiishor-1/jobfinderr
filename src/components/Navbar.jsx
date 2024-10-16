@@ -18,6 +18,8 @@ export default function Navbar() {
     navigate("/");
   };
 
+  console.log("user",user)
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);  // Toggle the menu
   };
@@ -30,7 +32,7 @@ export default function Navbar() {
           viewBox="0 0 1440 320">
           <path
             fill="#FF6B6B"
-            fill-opacity="1"
+            fillOpacity="1"
             d="M0,256L60,229.3C120,203,240,149,360,160C480,171,600,245,720,277.3C840,309,960,299,1080,266.7C1200,235,1320,181,1380,154.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
           >
           </path>
@@ -42,7 +44,7 @@ export default function Navbar() {
           viewBox="0 0 1440 320"
           >
           <path fill="#FF6B6B"
-            fill-opacity="1"
+            fillOpacity="1"
             d="M0,160L34.3,144C68.6,128,137,96,206,74.7C274.3,53,343,43,411,64C480,85,549,139,617,176C685.7,213,754,235,823,208C891.4,181,960,107,1029,112C1097.1,117,1166,203,1234,240C1302.9,277,1371,267,1406,261.3L1440,256L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z">
           </path>
         </svg>
@@ -62,7 +64,7 @@ export default function Navbar() {
           <div className="flex flex-col lg:flex-row lg:items-center items-start gap-4 text-white">
             <button onClick={handleLogout} className="px-4 py-[0.4rem]">Logout</button>
             <button className="px-4 flex items-center gap-3">
-              Hello! Recruiter
+              Hello! {user?.name.split(" ")[0]}
               <img
                 className="rounded-full w-[3rem]"
                 src={`https://ui-avatars.com/api/?name=${user?.email}`}
