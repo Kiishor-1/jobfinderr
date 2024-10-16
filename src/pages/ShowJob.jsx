@@ -33,7 +33,7 @@ export default function ShowJob() {
             <div className="nav_container sticky top-0 z-[2]">
                 <Navbar />
             </div>
-            <p className="translate-y-[-10px] sticky top-[5rem] bg-white font-semibold text-lg text-gray-600 z-[8] shadow-lg py-6 px-6 text-center max-w-[1000px] mx-auto">{currentJob.description}</p>
+            <p className="translate-y-[-10px] sticky top-[4.5rem] bg-white font-semibold text-lg text-gray-600 z-[1] md:z-[3] shadow-lg py-6 px-6 text-center max-w-[1000px] mx-auto">{currentJob.description}</p>
             <div className="bg-white text-gray-600 max-w-[1000px] mx-auto p-8 shadow-lg my-3">
                 <p className="text-[0.8rem] flex items-center gap-1 my-3">
                     <span>{formatDate(currentJob.postedDate)}</span>
