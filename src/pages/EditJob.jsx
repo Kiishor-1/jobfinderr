@@ -92,6 +92,10 @@ export default function EditJob() {
         setSkills(skills.filter(skill => skill !== skillToRemove));
     };
 
+    const goBack = ()=>{
+        navigate(-1);
+    }
+
     if (isLoading) return <p>Loading...</p>;
     // if (error) return <p>Error: {error}</p>;
 
@@ -99,7 +103,7 @@ export default function EditJob() {
         <div className="h-screen w-screen flex lg:flex-row flex-col">
             <div className="h-full flex-1 w-full overflow-y-auto" id='edit_job_form'>
                 <div className="w-[80%] mx-auto relative">
-                    <p className='text-3xl py-3 my-3 sticky top-0 bg-white'>Edit Job Description</p>
+                    <button type="button" onClick={goBack} className='text-3xl w-full text-start py-3 my-3 sticky top-0 bg-white'>Edit Job Description</button>
                     <form onSubmit={handleSubmit(onSubmit)} className='mx-auto gap-3 w-full py-3'>
                         <div className="flex gap-3 my-2">
                             <label className="w-1/2 font-semibold" htmlFor="company">Company Name</label>
@@ -314,7 +318,7 @@ export default function EditJob() {
                     alt="Edit page image"
                 />
                 <p className='absolute top-[4rem] left-[2.2rem] text-4xl font-bold text-white'>Recruiter add job details here</p>
-                <Link to={"/"} className='absolute bottom-[4rem] left-[.2rem] text-4xl font-bold text-white'>Jobfinder</Link>
+                {/* <Link to={"/"} className='absolute bottom-[4rem] left-[1.2rem] text-2xl text-slate-300 font-bold text-white'>Jobfinder</Link> */}
             </div>
         </div>
     );

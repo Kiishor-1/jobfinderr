@@ -84,11 +84,15 @@ export default function AddJob() {
         setResponsibilities(responsibilities.filter(resp => resp !== responsibilityToRemove));
     };
 
+    const goBack = ()=>{
+        navigate(-1);
+    }
+
     return (
         <div className="h-screen w-screen flex lg:flex-row flex-col">
             <div className="h-full flex-1 w-full overflow-y-auto" id='add_job_form'>
-                <div className="w-[80%] mx-auto relative">
-                    <p className='text-3xl py-3 my-3 sticky top-0 bg-white'>Add Job Description</p>
+                <div className="lg:w-[80%] w-[95%] mx-auto relative">
+                    <button onClick={goBack} className='text-3xl w-full text-start py-3 my-3 sticky top-0 bg-white'>Add Job Description</button>
                     <form onSubmit={handleSubmit(onSubmit)} className='mx-auto gap-3 w-full py-3'>
                         {/* Existing fields remain unchanged */}
                         <div className="flex gap-3 my-2">
